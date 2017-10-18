@@ -1,0 +1,73 @@
+/* en este caso el block es large-hero y & son los nested */
+.large-hero {
+	border-bottom: 10px solid $mainBlue;
+	position: relative;
+
+		&__image {
+/* hago esto porque por defecto los navegadores tratan a las img como inline-block */
+			display: block;
+		}
+
+		&__text-content {
+		position: absolute;
+		top: 50%; /*lo ubico a la mitad*/
+		transform: translateY(-50%); /*hace esto porque no usa backgrond-img*/
+		left:0;
+		width: 100%;
+		text-align: center;
+		}
+
+/*sigue principios BEM*/
+/*  B block
+	E element, no puede ser usado fuera de su bloque
+	M modifier, indica cambio al bloque o elemento
+todos los selectores css deberian target directly con clasess en lugar de usar tipo de selectores, ej h1 h4 o first-child
+los bloques pueden ser insertados dentro de otros
+identificar patrones y crear bloques
+*/
+	&__title {
+		font-weight: 300;
+		color: $mainBlue;
+		font-size: 2.4rem;
+
+			@mixin atSmall {
+				font-size: 4.8rem;
+			}
+			/*@mixin atMedium {
+				font-size: 3.2rem;
+			}
+			@mixin atLarge {
+				font-size: 4.8rem;
+			}*/
+	}
+	&__subtitle {
+		font-weight: 300;
+		color: $mainBlue;
+		font-size: 1.5rem;
+
+			@mixin atSmall {
+			font-size: 2.9rem;
+			}
+			/*@mixin atMedium {
+				font-size: 3.2rem;
+			}
+			@mixin atLarge {
+				font-size: 4.8rem;
+			}*/
+	}
+	&__description {
+		font-weight: 100;
+		color: #FFF;
+		font-size: 1.1rem;
+		text-shadow: 2px 2px 0 rgba(0,0,0, 0.1);
+		/*max-width: 480px; si lo dejo en px y el usuario tiene su browser seteado con un font size mayor me rompe el diseño */
+		max-width: 30rem;
+		margin-left: auto;
+		margin-right: auto;
+
+		@mixin atSmall {
+			font-size: 1.875rem;
+			}
+	}
+
+} /*fin large-hero */

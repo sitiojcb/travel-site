@@ -1,0 +1,61 @@
+.row {
+/* 
+background-color: yellow;
+*/
+	/* muevo a mixins creando un clearfix
+	&::after {
+	content:"";
+	clear: both;
+	display: table;
+	}*/
+	
+	@mixin clearfix;
+
+	&--gutters {
+		margin-right: -65px ;
+	}
+
+	&--gutters > div {
+		padding-right: 65px ;
+	}
+
+	&__b-margin-until-medium {
+		margin-bottom: 1rem;
+	}
+	
+	@mixin atMedium {
+		&__b-margin-until-medium {
+		margin-bottom: 0;
+		}
+
+		&__medium-4 {
+			float: left;
+			width: 33.33%;
+		}
+		&__medium-4--larger {
+			float: left;
+			width: 37%;
+		}
+		&__medium-8 {
+			float: left;
+			width: 66.66%;
+		}
+		&__medium-8--smaller {
+			float: left;
+			width: 63%;
+		}
+	}
+} /* row */
+
+/*
+en lugar de esto usa &::after de arriba ;
+el display table es por browser support
+por ejemp en safari y chrome sin eso no se ven bien
+.clear-me {
+	clear: both;
+}
+
+con margen negativo igual al padding agregado me aseguro de que el grid no se rompe
+
+
+*/

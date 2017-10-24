@@ -10,12 +10,21 @@ background-color: yellow;
 	}*/
 	
 	@mixin clearfix;
-
+	
+	&--t-padding {
+		padding-top: 80px;
+	}
 	&--gutters {
 		margin-right: -65px ;
 	}
 	&--gutters > div {
 		padding-right: 65px ;
+	}
+	&--gutters-small {
+		margin-right: -45px ;
+	}
+	&--gutters-small > div {
+		padding-right: 45px ;
 	}
 
 	&--gutters-large {
@@ -55,7 +64,57 @@ background-color: yellow;
 			float: left;
 			width: 63%;
 		}
-	}
+	} /* atMedium */
+
+	@mixin atLarge {
+		&__b-margin-until-large {
+		margin-bottom: 0;
+		}
+
+		&__large-4 {
+			float: left;
+			width: 33.33%;
+		}
+		&__large-4--larger {
+			float: left;
+			width: 37%;
+		}
+		&__large-6 {
+			float: left;
+			width: 50%;
+		}
+		&__large-8 {
+			float: left;
+			width: 66%;
+		}
+		&__large-8--smaller {
+			float: left;
+			width: 63%;
+		}
+	} /* atLarge */
+
+	&--equal-height-at-medium {
+
+		@mixin atMedium {
+			display: flex;
+		}
+		& > div {
+			float: none;
+			display: flex;
+		}
+	} 
+	&--equal-height-at-large {
+
+		@mixin atLarge {
+			display: flex;
+		}
+		& > div {
+			float: none;
+			display: flex;
+		}
+	} 
+
+
 } /* row */
 
 /*
@@ -67,6 +126,5 @@ por ejemp en safari y chrome sin eso no se ven bien
 }
 
 con margen negativo igual al padding agregado me aseguro de que el grid no se rompe
-
 
 */
